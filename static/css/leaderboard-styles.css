@@ -1,0 +1,112 @@
+/* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+/* Background */
+body {
+    background-color: #000000;
+    color: #333;
+    overflow: hidden;
+}
+
+/* Leaderboard Container */
+#leaderboard-container {
+    position: relative; /* Menambahkan posisi relatif */
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 35px;
+    background-color: #fff;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    text-align: center;
+    z-index : 0;
+    overflow: hidden;
+}
+
+/* Leaderboard Background */
+#leaderboard-background {
+    position: fixed; /* Gunakan fixed agar background tetap di belakang saat scroll */
+    top: 0;
+    left: 0;
+    width: 100vw; /* Gunakan viewport width */
+    height: 100vh; /* Gunakan viewport height */
+    background: url('/static/assets/images/home-bg.gif') no-repeat center center;
+    background-size: cover; /* Agar background menyesuaikan ukuran halaman */
+    z-index: -1; /* Pastikan background di belakang konten */
+}
+
+/* Header */
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: #333;
+    font-weight: bold;
+}
+
+/* Table Styles */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+
+th, td {
+    padding: 15px;
+    text-align: center;
+    font-size: 1.1rem;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    background-color: #4CAF50;
+    color: white;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+tr:hover {
+    background-color: #f1f1f1;
+}
+
+/* Button */
+.button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 20px;
+    display: inline-block;
+    font-size: 1rem;
+}
+
+.button:hover {
+    background-color: #45a049;
+    cursor: pointer;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    table {
+        font-size: 0.9rem;
+    }
+
+    th, td {
+        padding: 12px;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    .button {
+        font-size: 0.9rem;
+    }
+}

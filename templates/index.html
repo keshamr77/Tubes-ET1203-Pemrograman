@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pokemon Airstrike</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <script src="{{ url_for('static', filename='js/script.js') }}" defer></script>
+</head>
+<body>
+    <!-- Background Image -->
+    <div class="background-image"></div>
+
+    <div id="home-container">
+        <!-- Title GIF -->
+        <div class="title-container">
+            <img src="{{ url_for('static', filename='assets/images/title.png') }}" alt="Pokemon Airstrike" class="game-title">
+        </div>
+    <!-- Modal Notification -->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <p>Please insert your username!</p>
+        </div>
+    </div>
+
+        <!-- Game Button -->
+        <div id="game-button-container">
+            <img id="game-button" src="{{ url_for('static', filename='assets/images/play.png') }}" alt="Game Button" onclick="startGame()">
+        </div>
+    
+        <!-- Play Form -->
+        <div id="play-container" style="display: none;">
+            <input type="text" id="username" placeholder="Insert name">
+            <img id="play-button" src="{{ url_for('static', filename='assets/images/play.png') }}" alt="Play Button" onclick="submitUsername()">
+        </div>
+    </div>
+    
+    <!-- Suara Intro (looping otomatis) -->
+    <audio id="intro-sound" src="{{ url_for('static', filename='sounds/intro.mp3') }}" loop ></audio>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const introSound = document.getElementById('intro-sound');
+            
+            // Putar suara intro setelah tombol game diklik
+            const gameButton = document.getElementById('game-button');
+            gameButton.addEventListener('click', () => {
+                introSound.play().catch((error) => {
+                    console.log('Error playing intro sound:', error);
+                });
+            });
+        });
+    </script>
+    <!-- Suara Klik -->
+    <audio id="click-sound" src="{{ url_for('static', filename='sounds/click.wav') }}"preload="auto"></audio>
+
+    <!-- Suara Notifikasi (untuk username kosong) -->
+    <audio id="notice-sound" src="{{ url_for('static', filename='sounds/notice.wav') }}"preload="auto"></audio>
+
+    <script>
+        function startGame() {
+            // Main game button klik, putar suara klik
+            document.getElementById('click-sound').play();
+
+            document.getElementById('game-button-container').style.display = 'none';
+            document.getElementById('play-container').style.display = 'block';
+        }
+
+        function submitUsername() {
+            const username = document.getElementById('username').value;
+            if (username) {
+                // Putar suara klik saat tombol play diklik
+                document.getElementById('click-sound').play();
+
+                // Redirect ke gameplay dengan username
+                window.location.href = `/game?username=${username}`;
+            } else {
+                // Putar suara notifikasi jika username kosong
+                document.getElementById('notice-sound').play();
+                // Menampilkan modal jika username kosong
+                document.getElementById('username-modal').style.display = 'block';
+            }
+        }
+        function closeModal() {
+            document.getElementById('username-modal').style.display = 'none';
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leaderboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/leaderboard-styles.css') }}">
+</head>
+<body>
+    <!-- Background Image -->
+    <div class="background-image"></div>
+    <div id="leaderboard-container">
+        <!-- Title GIF -->
+        <div class="leaderboard-title-container">
+            <img src="{{ url_for('static', filename='assets/images/Leaderboard-Logo.png') }}" alt="Leaderboard" class="Leaderboard">
+        </div>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Rank</th>
+                <th>Username</th>
+                <th>Score</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% if leaderboard %}
+                {% for player in leaderboard %}
+                <tr>
+                    <td>{{ loop.index }}</td>
+                    <td>{{ player.username }}</td>
+                    <td>{{ player.score }}</td>
+                </tr>
+                {% endfor %}
+            {% else %}
+                <tr><td colspan="3">No leaderboard data available.</td></tr>
+            {% endif %}
+        </tbody>
+    </table>
+    <a href="/" class="button">Back to Homepage</a>
+</body>
+</html>

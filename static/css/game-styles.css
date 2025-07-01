@@ -1,0 +1,161 @@
+/* Global Styles */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background: #222; /* Fallback background for gameplay */
+    color: white;
+    overflow: hidden;
+}
+
+/* Tampilan kontainer game */
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+}
+
+/* Game Container */
+#game-container {
+    position: relative;
+    width: 1200px; /* Disesuaikan dengan ukuran canvas */
+    height: 550px; /* Disesuaikan dengan ukuran canvas */
+    margin: 50px auto;
+    border: 3px solid white;
+    overflow: hidden; /* Prevent elements from overflowing */
+}
+
+/* Background */
+#game-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('/static/assets/images/background.gif') no-repeat center center;
+    background-size: auto;
+    z-index: -1; /* Ensure background is at the back */
+    overflow: visible;
+}
+
+/* Player */
+#player {
+    position: absolute;
+    width: 100px; /* Lebih besar */
+    height: 100px; /* Lebih besar */
+    background: url('/static/assets/images/player.gif') no-repeat center center;
+    background-size: auto;
+    z-index: 2; /* Player above background */
+}
+
+/* Player Projectile */
+.player-projectile {
+    position: absolute;
+    width: 20px; /* Lebih besar */
+    height: 20px; /* Lebih besar */
+    background: url('/static/assets/images/player_projectile.gif') no-repeat center center;
+    background-size: contain;
+    z-index: 3; /* Above player */
+}
+
+/* Enemy */
+.enemy {
+    position: absolute;
+    width: 75px; /* Lebih besar */
+    height: 75px; /* Lebih besar */
+    background: url('/static/assets/images/enemy.gif') no-repeat center center;
+    background-size: auto;
+    z-index: 2; /* Same layer as player */
+}
+
+/* Enemy Projectile */
+.enemy-projectile {
+    position: absolute;
+    width: 25px; /* Lebih besar */
+    height: 25px; /* Lebih besar */
+    background: url('/static/assets/images/enemy_projectile.png') no-repeat center center;
+    background-size: contain;
+    z-index: 3; /* Above enemy */
+}
+
+/* Obstacle */
+.obstacle {
+    position: absolute;
+    width: 75px; /* Lebih besar */
+    height: 75px; /* Lebih besar */
+    background: url('/static/assets/images/obstacle.gif') no-repeat center center;
+    background-size: auto;
+    z-index: 2; /* Same layer as player */
+}
+
+/* Power-Up */
+.power-up {
+    position: absolute;
+    width: 50px; /* Lebih besar */
+    height: 50px; /* Lebih besar */
+    background: url('/static/assets/images/powerup_speed.png') no-repeat center center;
+    background-size: contain;
+    z-index: 2; /* Same layer as player */
+    animation: float 2s infinite ease-in-out;
+}
+
+/* Animation for Floating Power-Up */
+@keyframes float {
+    0%, 100% {
+        transform: translateY(-10px);
+    }
+    50% {
+        transform: translateY(10px);
+    }
+}
+
+/* UI Elements */
+#ui {
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10; /* Above all game elements */
+    font-size: 24px; /* Lebih besar */
+    font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+    color: white; /* Warna teks putih */
+}
+
+#ui span {
+    margin-right: 20px;
+}
+
+
+
+#game-over-screen h1 {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 4rem; /* Sesuaikan ukuran font */
+    color: white;
+}
+
+#game-over-screen #final-score {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 2rem;
+    color: white;
+}
+
+#game-over-screen #end-game-btn {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 1.5rem;
+    background: #e74c3c; /* Warna tombol */
+    color: white;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: transform 0.2s ease; /* Tambahkan animasi */
+}
+
+#game-over-screen #end-game-btn:hover {
+    transform: scale(1.1); /* Perbesar tombol saat hover */
+}

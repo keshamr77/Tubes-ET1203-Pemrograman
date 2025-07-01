@@ -1,0 +1,151 @@
+/* Global Styles */
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column; /* Tata elemen secara vertikal */
+    align-items: center;
+    justify-content: center;
+    background: url('/static/assets/images/home-bg.gif') no-repeat center center fixed;
+    background-size: cover; /* Sesuaikan ukuran background */
+    font-family: Arial, sans-serif;
+    color: white;
+    text-align: center;
+}
+
+/* Modal Styles */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Fixed position to stay in place */
+    top: 50%; /* Center the modal */
+    left: 50%;
+    transform: translate(-50%, -50%); /* Adjust position by half of its width and height */
+    background-color: rgba(0, 0, 0, 0.8); /* Dark background with transparency */
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+    z-index: 1000; /* Make sure modal is on top of other content */
+    text-align: center;
+    width: 300px; /* Tentukan lebar modal */
+    min-height: 150px; /* Tentukan ketinggian minimal */
+}
+
+/* Modal Content */
+.modal-content {
+    background-color: #333;
+    border-radius: 10px;
+    padding: 30px;
+    font-family: 'Courier New', Courier, monospace; /* Retro font */
+    font-size: 18px;
+    text-transform: uppercase;
+}
+
+/* Modal Message */
+.modal-message {
+    font-size: 18px;
+    color: black;
+    margin-bottom: 15px;
+    font-family: 'Press Start 2P', cursive;
+}
+
+/* Modal Button */
+.modal-btn {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-family: 'Press Start 2P', cursive; /* Retro font */
+    transition: background-color 0.3s ease;
+}
+
+.modal-btn:hover {
+    background-color: #218838;
+}
+
+/* Close Button */
+.close-btn {
+    font-size: 24px;
+    font-weight: bold;
+    color: #f44336; /* Red close button */
+    cursor: pointer;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+.close-btn:hover {
+    color: white;
+    background-color: #f44336;
+    border-radius: 50%;
+}
+
+/* Title Container */
+.title-container {
+    display: flex; /* Gunakan Flexbox untuk memusatkan */
+    flex-direction: column; /* Atur tata letak elemen secara vertikal */
+    justify-content: center; /* Pusatkan secara vertikal */
+    align-items: center; /* Pusatkan secara horizontal */
+    margin-bottom: 20px; /* Tambahkan jarak dari elemen berikutnya */
+    margin-top: 50px; /* Sesuaikan jarak dari atas halaman */
+}
+
+/* Title PNG */
+.game-title {
+    width: 70%; /* Perbesar ukuran sesuai kebutuhan */
+    max-width: 800px; /* Tetapkan batas maksimum lebar */
+    height: auto; /* Sesuaikan tinggi secara proporsional */
+}
+
+/* Game Button */
+#game-button-container {
+    margin: 20px 0;
+}
+
+#game-button {
+    width: 50px;
+    cursor: pointer;
+    transition: transform 0.2s ease; /* Tambahkan efek hover */
+}
+
+#game-button:hover {
+    transform: scale(1.1); /* Perbesar saat hover */
+}
+
+/* Fade Effect */
+#game-button-container, #play-container, #home-container {
+    transition: opacity 0.5s ease-in-out;
+}
+
+/* Center Play Form */
+#play-container {
+    flex-direction: column; /* Vertikal */
+    align-items: center; /* Centered horizontally */
+    justify-content: center; /* Centered vertically */
+    margin-top: 20px;
+}
+
+
+#username {
+    font-size: 18px;
+    padding: 10px;
+    margin-bottom: 15px; /* Tambahkan jarak dari tombol */
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    width: 250px;
+}
+
+#play-button {
+    width: 50px; /* Perkecil ukuran tombol */
+    height: auto; /* Sesuaikan tinggi proporsional */
+    cursor: pointer;
+    transition: transform 0.2s ease; /* Tambahkan efek hover */
+    margin-top: 10px; /* Tambahkan jarak antara tombol dan form */
+}
+
+#play-button:hover {
+    transform: scale(1.1); /* Perbesar sedikit saat hover */
+}
